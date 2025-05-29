@@ -88,10 +88,6 @@ func DELETE_by_id(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		http.Error(w, "invalid id", 400)
 	}
-	err = repo.RemoveAtIndex(id)
-	if err != nil {
-		http.Error(w, "invalid id", 400)
-	}
+	repo.RemoveAtID(id)
 	w.Write([]byte("entry deleted"))
-
 }
